@@ -2,41 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* LEGENDS Gaming Design System - Neon eSports Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Gaming Neon Colors */
+    --neon-green: 153 100% 50%;     /* #00FF88 */
+    --neon-purple: 265 100% 64%;    /* #9945FF */
+    --neon-cyan: 195 100% 50%;      /* #00D4FF */
+    --neon-red: 0 100% 59%;         /* #FF3131 */
+    --neon-yellow: 51 100% 50%;     /* #FFD700 */
+    
+    /* Core System Colors */
+    --background: 222 58% 8%;        /* #0A0E1B - Dark gaming bg */
+    --foreground: 0 0% 100%;         /* White text */
+    
+    --card: 222 58% 12%;             /* Slightly lighter than bg */
+    --card-foreground: 0 0% 100%;
+    
+    --primary: 153 100% 50%;         /* Neon green primary */
+    --primary-foreground: 222 58% 8%;
+    
+    --secondary: 265 100% 64%;       /* Neon purple secondary */
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 195 100% 50%;          /* Neon cyan accent */
+    --accent-foreground: 222 58% 8%;
+    
+    --muted: 222 58% 15%;
+    --muted-foreground: 0 0% 70%;
+    
+    --destructive: 0 100% 59%;       /* Neon red */
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 222 58% 20%;
+    --input: 222 58% 15%;
+    --ring: 153 100% 50%;
+    
+    /* Gaming Specific Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--neon-green)), hsl(var(--neon-cyan)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--neon-purple)), hsl(var(--neon-red)));
+    --gradient-gaming: linear-gradient(135deg, hsl(var(--neon-green) / 0.8), hsl(var(--neon-purple) / 0.8));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(222 58% 5%));
+    
+    /* Glow Effects */
+    --glow-green: 0 0 30px hsl(var(--neon-green) / 0.5);
+    --glow-purple: 0 0 30px hsl(var(--neon-purple) / 0.5);
+    --glow-cyan: 0 0 30px hsl(var(--neon-cyan) / 0.5);
+    --glow-text: 0 0 10px hsl(var(--neon-green) / 0.8);
+    
+    /* Glass Effects */
+    --glass-bg: hsl(var(--background) / 0.1);
+    --glass-border: hsl(var(--foreground) / 0.1);
+    --glass-backdrop: blur(10px);
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -91,6 +111,78 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+/* Gaming Utility Classes */
+@layer utilities {
+  .glow-green {
+    box-shadow: var(--glow-green);
+  }
+  
+  .glow-purple {
+    box-shadow: var(--glow-purple);
+  }
+  
+  .glow-cyan {
+    box-shadow: var(--glow-cyan);
+  }
+  
+  .text-glow {
+    text-shadow: var(--glow-text);
+  }
+  
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-backdrop);
+    -webkit-backdrop-filter: var(--glass-backdrop);
+  }
+  
+  .neon-border {
+    border-image: var(--gradient-primary) 1;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-grid-move {
+    animation: grid-move 20s linear infinite;
+  }
+}
+
+/* Gaming Animations */
+@layer components {
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(5deg);
+    }
+  }
+  
+  @keyframes glow-pulse {
+    0% {
+      box-shadow: 0 0 5px hsl(var(--neon-green) / 0.5);
+    }
+    100% {
+      box-shadow: 0 0 30px hsl(var(--neon-green) / 1), 0 0 40px hsl(var(--neon-green) / 0.8);
+    }
+  }
+  
+  @keyframes grid-move {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100px);
+    }
   }
 }
 
