@@ -21,6 +21,7 @@ import {
 import heroImage from '@/assets/hero-gaming.jpg';
 import dashboardImage from '@/assets/dashboard-preview.jpg';
 import gamingBackground from '@/assets/gaming-background.jpg';
+import legendsDashboard from '@/assets/legends-dashboard.jpg';
 
 const Index = () => {
   const [playerCount, setPlayerCount] = useState(15247);
@@ -43,6 +44,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-hero relative overflow-hidden">
+      {/* Gaming Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-30"
+        style={{ backgroundImage: `url(${gamingBackground})` }}
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-bg-primary/90 via-bg-primary/70 to-bg-primary/90" />
       
       {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-10 animate-grid-move">
@@ -155,7 +163,7 @@ const Index = () => {
           {[
             { label: "Jugadores LATAM", value: "335M", icon: Users, desc: "Market total LATAM" },
             { label: "Mejora más rápida", value: "49%", icon: TrendingUp, desc: "vs práctica tradicional" },
-            { label: "Estancamiento superado", value: "92%", icon: Zap, desc: "jugadores rompen barreras" },
+            { label: "Skill plateau resuelto", value: "92%", icon: Zap, desc: "jugadores rompen estancamiento" },
             { label: "Variables analizadas", value: "+50", icon: BarChart3, desc: "por cada partida IA" }
           ].map((stat, index) => (
             <Card key={index} className="glass-card border-neon-green/20 glow-green hover:glow-purple transition-all duration-300">
@@ -224,8 +232,8 @@ const Index = () => {
               Por qué LEGENDS funciona
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              67% de jugadores intermedios experimentan <span className="text-neon-red">estancamiento competitivo</span>. 
-              Nuestra IA identifica y rompe estas <span className="text-neon-cyan">barreras invisibles</span> que frenan tu progreso.
+              67% de jugadores intermedios sufren <span className="text-neon-red">skill plateau</span>. 
+              Nuestra IA rompe estancamientos identificando el <span className="text-neon-cyan">exacto problema</span> que te detiene.
             </p>
           </div>
 
@@ -234,7 +242,7 @@ const Index = () => {
               {
                 icon: BarChart3,
                 title: "IA Anti-Plateau",
-                description: "Identifica el problema exacto que causa tu <span className='text-neon-red'>techo de rendimiento</span>. 92% de usuarios rompen barreras en 30 días vs 23% con práctica tradicional.",
+                description: "Identifica el problema exacto que causa tu estancamiento. 92% de usuarios rompen plateau en 30 días vs 23% con práctica tradicional.",
                 color: "neon-green",
                 proof: "Validado por 15,000+ análisis"
               },
@@ -275,7 +283,7 @@ const Index = () => {
       <section className="relative z-10 px-6 lg:px-12 py-16">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-glow">
-            ¿Tu progreso se detuvo?
+            ¿Estás en Skill Plateau?
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
             Test rápido: Descubre si estás estancado y qué te detiene (2 minutos)
@@ -301,7 +309,7 @@ const Index = () => {
               <div className="text-center">
                 <div className="mb-6">
                   <div className="text-4xl font-bold text-neon-cyan mb-2">67%</div>
-                  <div className="text-sm text-muted-foreground">de jugadores intermedios alcanzan su techo</div>
+                  <div className="text-sm text-muted-foreground">de jugadores intermedios sufren plateau</div>
                 </div>
                 <Button size="lg" className="bg-gradient-secondary glow-cyan w-full">
                   <BarChart3 className="w-5 h-5 mr-2" />
@@ -348,7 +356,7 @@ const Index = () => {
             
             <div className="relative">
               <img 
-                src={dashboardImage} 
+                src={legendsDashboard} 
                 alt="Dashboard Analytics Preview LEGENDS" 
                 className="rounded-2xl glow-purple w-full"
               />
