@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  base: '/apex-path-gaming/', // <- usar rutas relativas para assets en dist
   plugins: [
     react(),
     mode === 'development' &&
