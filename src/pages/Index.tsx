@@ -20,6 +20,8 @@ import {
 } from 'lucide-react';
 import heroImage from '@/assets/hero-gaming.jpg';
 import dashboardImage from '@/assets/dashboard-preview.jpg';
+import gamingBackground from '@/assets/gaming-background.jpg';
+import legendsDashboard from '@/assets/legends-dashboard.jpg';
 
 const Index = () => {
   const [playerCount, setPlayerCount] = useState(15247);
@@ -42,6 +44,14 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-hero relative overflow-hidden">
+      {/* Gaming Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-30"
+        style={{ backgroundImage: `url(${gamingBackground})` }}
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-bg-primary/90 via-bg-primary/70 to-bg-primary/90" />
+      
       {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-10 animate-grid-move">
         <div className="grid grid-cols-12 gap-4 h-full w-[calc(100%+100px)]">
@@ -346,7 +356,7 @@ const Index = () => {
             
             <div className="relative">
               <img 
-                src={dashboardImage} 
+                src={legendsDashboard} 
                 alt="Dashboard Analytics Preview LEGENDS" 
                 className="rounded-2xl glow-purple w-full"
               />
