@@ -42,12 +42,15 @@ const Index = () => {
     </span>
   );
 
+  const openDashboard = () => {
+    window.location.href = 'https://stephanoapiolaza.github.io/legends-core/';
+  }
+
   return (
     <div className="min-h-screen bg-gradient-hero relative overflow-hidden">
       {/* Gaming Background */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{ backgroundImage: `url(${dashboardImage})` }}
+        className="absolute inset-0"
       />
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-bg-primary/90 via-bg-primary/70 to-bg-primary/90" />
@@ -78,7 +81,7 @@ const Index = () => {
           </div>
           <span className="text-2xl font-bold text-glow">LEGENDS</span>
         </div>
-        <Button variant="outline" className="glass-card border-neon-green/50 text-neon-green hover:bg-neon-green hover:text-background glow-green">
+        <Button variant="outline" className="glass-card border-neon-green/50 text-neon-green hover:bg-neon-green hover:text-background glow-green" onClick={openDashboard}>
           Acceso Early Beta
         </Button>
       </nav>
@@ -122,11 +125,11 @@ const Index = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" className="bg-gradient-primary glow-green text-lg px-8 py-4 hover:scale-105 transition-transform">
+              <Button size="lg" className="bg-gradient-primary glow-green text-lg px-8 py-4 hover:scale-105 transition-transform" onClick={openDashboard}>
                 <Play className="w-5 h-5 mr-2" />
                 Analizar mi nivel Gratis
               </Button>
-              <Button size="lg" variant="outline" className="glass-card border-neon-purple/50 text-neon-purple hover:bg-neon-purple hover:text-background glow-purple">
+              <Button size="lg" variant="outline" className="glass-card border-neon-purple/50 text-neon-purple hover:bg-neon-purple hover:text-background glow-purple" onClick={openDashboard}>
                 Ver Dashboard Demo
               </Button>
             </div>
@@ -261,7 +264,7 @@ const Index = () => {
                   <div className="text-4xl font-bold text-neon-cyan mb-2">67%</div>
                   <div className="text-sm text-muted-foreground">de nuestros jugadores aumentan su nivel</div>
                 </div>
-                <Button size="lg" className="bg-gradient-secondary glow-cyan w-full">
+                <Button size="lg" className="bg-gradient-secondary glow-cyan w-full" onClick={openDashboard}>
                   <BarChart3 className="w-5 h-5 mr-2" />
                   Analizar Mi Nivel Gratis
                 </Button>
@@ -299,7 +302,7 @@ const Index = () => {
                   </div>
                 ))}
               </div>
-              <Button className="bg-gradient-secondary glow-purple">
+              <Button className="bg-gradient-secondary glow-purple" onClick={openDashboard}>
                 Explorar Dashboard
               </Button>
             </div>
@@ -388,6 +391,7 @@ const Index = () => {
                   </div>
                   <Button 
                     className={`w-full ${plan.popular ? 'bg-gradient-primary glow-green' : 'bg-gradient-secondary glow-purple'}`}
+                    onClick={openDashboard}
                     disabled={plan.name === 'Elite' || plan.name === 'Pro'}
                   >
                     {plan.cta}
@@ -411,7 +415,7 @@ const Index = () => {
               Únete a <span className="text-neon-green font-semibold">{playerCount.toLocaleString()}</span> jugadores LATAM que ya mejoran sistemáticamente con LEGENDS.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-primary glow-green text-lg px-8 py-4 hover:scale-105 transition-transform animate-glow-pulse">
+              <Button size="lg" className="bg-gradient-primary glow-green text-lg px-8 py-4 hover:scale-105 transition-transform animate-glow-pulse" onClick={openDashboard}>
                 <Trophy className="w-5 h-5 mr-2" />
                 Comenzar Mi Transformación
               </Button>
